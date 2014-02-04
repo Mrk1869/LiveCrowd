@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="keywords" content="sample">
+    <meta name="description" content="sample">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:url" content="{{ url }}">
+    <title>{{ title }}</title>
+    <link href="{{ static_url("css/bootstrap.css") }}" rel="stylesheet">
+    <link href="{{ static_url("css/style.css") }}" rel="stylesheet">
+    <script src="{{ static_url("js/jquery.1.10.2.min.js") }}"></script>
+    <script src="{{ static_url("js/bootstrap.min.js") }}"></script>
+    <script src="{{ static_url("js/main.js") }}"></script>
+    <link rel="shortcut icon" href="{{ static_url("img/favicon.ico") }}">
+</head>
+<body>
+<div class="content">
+    <div class="container">
+        <div class="floor-background">
+            <canvas id="graph" width="800px" height="500px">
+            </canvas>
+        </div>
+    </div>
+    <div id="time"></div>
+</div>
+<div class="footer">
+    <div class="footer-inner">
+        <h3>sample</h3>
+        <p>Write dedcription here.</p>
+        <div class="license" align="center">
+                © <a href = "">sample</a> 2014
+        </div>
+    </div>
+</div>
+</body>
+</html>

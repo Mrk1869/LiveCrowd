@@ -13,12 +13,11 @@ $(function(){
   canvasWidth = $(".floor-background").width();
   $("#graph").attr({height:canvasHeight});
   $("#graph").attr({width:canvasWidth});
-//  var url =location.href;
-//  var param = url.substring(url.lastIndexOf("/")+1,param);
-//  (param != "")? scale_param = param : 100;
 });
 
-var ws = new WebSocket('ws://192.168.31.215:8000/data/');
+var url =location.href;
+var match = url.match(/http:\/\/(\S+)/);
+var ws = new WebSocket('ws://'+match[1]+'data/');
 ws.onmessage = function(evt) {
   var json = JSON.parse(evt.data);
   var froyer = parseFloat(json.froyer);

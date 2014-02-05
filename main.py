@@ -12,7 +12,6 @@ from tornado.options import define, options
 define("port", default=8000, help="run on the given port", type=int)
 define("debug", default=0, help="1:watch in real time (debug mode)", type=bool)
 
-ignore_device_list = []
 config = {}
 froyer_count = 0
 showroom_count = 0
@@ -22,6 +21,14 @@ class SQLThread(threading.Thread):
 
     def __init__(self):
         threading.Thread.__init__(self)
+
+        self.ignore_device_list = []
+        file = open('./ignore.txt')
+        lines = file.readlines()
+        for line in lines:
+            self.ignore_device_list.append(line.rstrip('\n'))
+        file.close()
+
         self.connection_foyer = MySQLdb.connect(
             db=config['foyer']['db'],
             host=config['foyer']['host'],
@@ -60,7 +67,7 @@ class SQLThread(threading.Thread):
         last_device = ""
         for row in result:
             device = row[2]
-            if device not in ignore_device_list and device != last_device:
+            if device not in self.ignore_device_list and device != last_device:
                 res = ""
                 dict.update({row[2]:"dummy"})
                 for val in row:
@@ -83,13 +90,6 @@ class IndexHandler(tornado.web.RequestHandler):
         self.render('index.html', url="", title="Live Crowd Density Visualization")
 
 if __name__ == "__main__":
-    file = open('./ignore.txt')
-    lines = file.readlines()
-    for line in lines:
-        ignore_device_list.append(line.rstrip('\n'))
-    file.close()
-    print "ignore list > "+str(ignore_device_list)
-
     file = open('./config.json')
     config = json.load(file)
     file.close()

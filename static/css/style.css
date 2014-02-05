@@ -2,7 +2,7 @@ body{
     padding: 0px 0px 0px 0px;
     height: 100%;
     width: 100%;
-    background-color: #212121;
+    background-color: #f0f2f4;
 }
 
 .logo{
@@ -10,35 +10,29 @@ body{
     height: 30px;
 }
 
-.content{
-    background-color: #f0f2f4;
-    padding: 100px 0px 50px 0px;
-}
-
 .container{
-    width: 800px;
+    position: relative;
+    display: block;
+    width: 500px;
+    margin: 0px auto;
+    padding: 20px 0px 20px 10px;
 }
 
 .floor-background{
     background-image: url(/static/img/floor.png);
-    background-size:100%;
+    background-size:contain;
     background-repeat:no-repeat;
-/*    position: relative;*/
-/*    display: block;*/
-/*    max-width: 100%;*/
-/*    padding: 5px;*/
-/*    margin: 10px auto 10px auto;*/
 }
 
 .footer{
-    box-shadow: 0 8px 12px -6px rgba(0,0,0,0.4) inset;
-    background-color: #212121;
+    box-shadow: 0 8px 12px -6px rgba(0,0,0,1.0) inset;
+    background-color: #333333;
     color: #ffffff;
 }
 
 .footer-inner{
-    max-width: 800px;
-    padding: 20px 20px 20px 20px;
+    max-width: 500px;
+    padding: 20px 20px 30px 20px;
     margin: 0px auto 0 auto;
 }
 
@@ -141,8 +135,8 @@ a:hover{
 /*Small Device Styles*/
 
 @media screen and (max-width: 480px) {
-    .content{
-        padding: 70px 0px 20px 0px;
+    .container{
+        padding: 10px 0px 10px 60px;
     }
     p{
         text-align:justify;
@@ -152,8 +146,11 @@ a:hover{
     h3{
         font-size:26px;
     }
+    .footer{
+        width:500px;
+    }
     .footer-inner{
-        padding: 20px 10px 20px 10px;
+        padding: 20px 10px 40px 20px;
     }
     .nav-tabs > li > a {
         font-size:16px;

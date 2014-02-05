@@ -1,0 +1,18 @@
+{
+  "foyer":{
+    "host":"",
+    "db":"",
+    "table":"",
+    "port":"",
+    "user":"",
+    "passwd":""
+  },
+  "showroom":{
+    "host":"",
+    "db":"",
+    "table":"",
+    "port":"",
+    "user":"",
+    "passwd":""
+  }
+}

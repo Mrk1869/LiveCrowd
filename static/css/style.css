@@ -136,7 +136,7 @@ a:hover{
 
 @media screen and (max-width: 480px) {
     .container{
-        padding: 10px 0px 10px 60px;
+        padding: 10px 0px 10px 40px;
     }
     p{
         text-align:justify;

@@ -42,7 +42,7 @@ ws.onmessage = function(evt) {
       tmp_showroom = tmp_showroom + delta_showroom
       clearCanvas();
       drawCircle(220, 160, Math.pow(tmp_froyer, (2/3))*2*scale_param);
-      drawCircle(190, 350, Math.pow(tmp_showroom, (2/3))*2*scale_param);
+      drawCircle(200, 350, Math.pow(tmp_showroom, (2/3))*2*scale_param);
       clearTimeout(timer);
       count += 1
       if (count < (1000.0/timer_delay)){

@@ -1,10 +1,10 @@
-var scale_param = ""
 var canvasHeight = $(".floor-background").height();
 var canvasWidth = $(".floor-background").width();
 var last_froyer = 0
 var last_showroom = 0
 
 // param
+var scale_param = 10.0
 var timer_delay = 10.0;
 var max_count = 15.0;
 
@@ -13,12 +13,12 @@ $(function(){
   canvasWidth = $(".floor-background").width();
   $("#graph").attr({height:canvasHeight});
   $("#graph").attr({width:canvasWidth});
-  var url =location.href;
-  var param = url.substring(url.lastIndexOf("/")+1,param);
-  (param != "")? scale_param = param : 100;
+//  var url =location.href;
+//  var param = url.substring(url.lastIndexOf("/")+1,param);
+//  (param != "")? scale_param = param : 100;
 });
 
-var ws = new WebSocket('ws://localhost:8000/data/');
+var ws = new WebSocket('ws://192.168.31.215:8000/data/');
 ws.onmessage = function(evt) {
   var json = JSON.parse(evt.data);
   var froyer = parseFloat(json.froyer);

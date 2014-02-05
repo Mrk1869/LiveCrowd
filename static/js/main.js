@@ -1,6 +1,6 @@
 var canvasHeight = $(".floor-background").height();
 var canvasWidth = $(".floor-background").width();
-var last_froyer = 0
+var last_foyer = 0
 var last_showroom = 0
 
 // param
@@ -20,28 +20,28 @@ var match = url.match(/http:\/\/(\S+)/);
 var ws = new WebSocket('ws://'+match[1]+'data/');
 ws.onmessage = function(evt) {
   var json = JSON.parse(evt.data);
-  var froyer = parseFloat(json.froyer);
+  var foyer = parseFloat(json.foyer);
   var showroom = parseFloat(json.showroom);
 
-  (froyer > max_count)? froyer = max_count : froyer;
+  (foyer > max_count)? foyer = max_count : foyer;
   (showroom > max_count)? showroom = max_count : showroom;
 
   var timer;
   var count = 0;
-  var delta_froyer = (froyer - last_froyer)/(1000.0/timer_delay);
+  var delta_foyer = (foyer - last_foyer)/(1000.0/timer_delay);
   var delta_showroom = (showroom - last_showroom)/(1000.0/timer_delay);
-  var tmp_froyer = last_froyer;
+  var tmp_foyer = last_foyer;
   var tmp_showroom = last_showroom;
-  last_froyer = froyer;
+  last_foyer = foyer;
   last_showroom = showroom;
 
-  if (delta_froyer != 0 || delta_showroom != 0){
+  if (delta_foyer != 0 || delta_showroom != 0){
     var loop = function(){
-      tmp_froyer = tmp_froyer + delta_froyer
+      tmp_foyer = tmp_foyer + delta_foyer
       tmp_showroom = tmp_showroom + delta_showroom
       clearCanvas();
-      drawCircle(220, 160, Math.pow(tmp_froyer, (2/3))*2*scale_param);
-      drawCircle(200, 350, Math.pow(tmp_showroom, (2/3))*2*scale_param);
+      drawCircle(230, 170, Math.pow(tmp_foyer, (2/3))*2*scale_param);
+      drawCircle(210, 350, Math.pow(tmp_showroom, (2/3))*2*scale_param);
       clearTimeout(timer);
       count += 1
       if (count < (1000.0/timer_delay)){

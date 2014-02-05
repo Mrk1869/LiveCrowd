@@ -13,7 +13,7 @@ from tornado.options import define, options
 define("port", default=8000, help="run on the given port", type=int)
 define("debug", default=0, help="1:watch in real time (debug mode)", type=bool)
 
-froyer_count = 0
+foyer_count = 0
 showroom_count = 0
 
 class SQLThread(threading.Thread):
@@ -56,8 +56,8 @@ class SQLThread(threading.Thread):
         while self.isRunning:
             self.cursor_foyer.execute(self.query)
             result = self.cursor_foyer.fetchall()
-            global froyer_count
-            froyer_count = self.count("Froyer", result)
+            global foyer_count
+            foyer_count = self.count("foyer", result)
             time.sleep(2)
 
             self.cursor_showroom.execute(self.query)
@@ -87,7 +87,7 @@ class DataWebSocket(websocket.WebSocketHandler):
         self.send_data()
 
     def send_data(self):
-        self.write_message({'froyer':froyer_count, 'showroom':showroom_count})
+        self.write_message({'foyer':foyer_count, 'showroom':showroom_count})
         tornado.ioloop.IOLoop.instance().add_timeout(time.time() + 5, self.send_data)
 
 class IndexHandler(tornado.web.RequestHandler):

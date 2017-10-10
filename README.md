@@ -1,7 +1,7 @@
 LiveCrowd
 ===========
 
-![Live Crowd Density Visualization](https://dl.dropboxusercontent.com/u/12208857/img/live_crowd_ss.png)
+![Live Crowd Density Visualization](https://www.dropbox.com/s/t2kkka8ophgk6jt/github_live_crowd_ss.png?raw=1)
 
 ## Set up
 
